@@ -170,7 +170,6 @@ function viewFamiliaDetalle(f){
             ${(p.tags||[]).map(t=>`<span class="ptag" style="border-color:${f.accent};color:${f.accent}">${esc(t)}</span>`).join('')}
           </div>
           <div class="prod-actions">
-            ${p.img?`<button class="btn btn-ghost btn-sm" onclick="openLightbox('${lbKey}','${nombreJs}')">Ver imagen</button>`:''}
             ${ficha?`<a class="btn btn-ghost btn-sm" href="${ficha}" target="_blank" rel="noopener">Ficha técnica</a>`:''}
             ${p.folleto?`<a class="btn btn-cyan btn-sm" href="${p.folleto}" target="_blank" rel="noopener">Folleto</a>`:''}
           </div>
