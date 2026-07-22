@@ -161,7 +161,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
 .err{background:rgba(241,159,44,.14);border:1px solid rgba(241,159,44,.4);padding:11px 14px;font-size:14px;border-radius:12px;margin-bottom:16px}
 
 .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.prod-card{background:var(--glass-bg-strong);backdrop-filter:blur(22px) saturate(175%);-webkit-backdrop-filter:blur(22px) saturate(175%);border:1px solid var(--glass-brd);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--glass-shadow),inset 0 1px 0 var(--glass-hi);transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s}
+.prod-card{cursor:pointer;color:inherit;text-decoration:none;background:var(--glass-bg-strong);backdrop-filter:blur(22px) saturate(175%);-webkit-backdrop-filter:blur(22px) saturate(175%);border:1px solid var(--glass-brd);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--glass-shadow),inset 0 1px 0 var(--glass-hi);transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s}
 .prod-card:hover{transform:translateY(-5px);box-shadow:var(--glass-shadow-lg),inset 0 1px 0 var(--glass-hi)}
 .prod-top{padding:26px 26px 20px;flex:1;display:flex;flex-direction:column}
 .prod-code{font-size:26px;font-weight:300;color:#9AA7BE;letter-spacing:.02em;line-height:1;margin-bottom:10px}
@@ -171,7 +171,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
 .prod-brand{font-size:14px;font-weight:600;color:var(--cyan);text-decoration:underline;text-underline-offset:2px;width:fit-content}
 .prod-brand:hover{color:var(--cyan-dark)}
 .prod-img{height:200px;background-size:cover;background-position:center;background-color:#E7EAF3}
-.prod-cta{background:linear-gradient(180deg,#2C51B0,#24459A);color:#fff;text-align:center;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:16px;transition:filter .18s;box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}
+.prod-cta{display:block;background:linear-gradient(180deg,#2C51B0,#24459A);color:#fff;text-align:center;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:16px;transition:filter .18s;box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}
 .prod-cta:hover{filter:brightness(1.08)}
 
 .faq details{border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;background:var(--glass-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--glass-brd);box-shadow:var(--glass-shadow)}
@@ -325,3 +325,22 @@ footer a:hover{color:var(--cyan)}
   .lb-close{top:12px;right:12px}
   .prod-actions .btn-sm{flex:1;text-align:center}
 }
+
+/* ===== Botón WhatsApp ===== */
+.btn-wa{background:linear-gradient(180deg,#2ADE7B,#25D366);color:#fff;gap:9px;
+  box-shadow:0 6px 18px rgba(37,211,102,.34),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-wa:hover{filter:brightness(1.05);box-shadow:0 10px 26px rgba(37,211,102,.44),inset 0 1px 0 rgba(255,255,255,.36)}
+.btn-wa svg{flex:none}
+
+/* ===== Redes sociales ===== */
+.social{display:flex;gap:10px;flex-wrap:wrap}
+.social-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  transition:transform .18s,background .18s;flex:none}
+.social-ico svg{width:20px;height:20px}
+/* En footer (fondo oscuro) */
+footer .social-ico{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.16)}
+footer .social-ico:hover{background:var(--cyan);transform:translateY(-2px)}
+/* En tarjeta de contacto (fondo claro) */
+.aside-card .social-ico{background:rgba(36,69,154,.08);color:var(--navy);border:1px solid var(--glass-brd)}
+.aside-card .social-ico:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+.foot-brand .social{margin-top:16px}

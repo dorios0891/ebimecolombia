@@ -124,4 +124,7 @@ const CONTACT = {
   email:'ep.andina@ebime.co',
   telefono:'+57 315 490 5102',
   ciudad:'Bogotá D.C., Colombia',
+  whatsapp:'https://wa.me/message/M7GSQHV3ECSRJ1',
+  tiktok:'https://www.tiktok.com/@ebime.colombia?_r=1&_t=ZS-98FnbewMAPX',
+  instagram:'https://www.instagram.com/ebimecolombia?igsh=MWFqa3QzeXBkcnFwZQ==',
 };
