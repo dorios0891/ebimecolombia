@@ -20,9 +20,9 @@ const FAMILIES = [
     img:'prod-cvc.jpg',
     marcas:[{n:'Bioflux®'}],
     productos:[
-      {nombre:'Bioflux® 3 lúmenes', ref:'200M70TLEPY', desc:'Triple lumen para múltiples terapias simultáneas.', tags:['3 lúmenes','7 Fr','20 cm']},
-      {nombre:'Bioflux® 2 lúmenes · 7 Fr', ref:'200M70DLEPY', desc:'Doble lumen de calibre 7 Fr.', tags:['2 lúmenes','7 Fr','20 cm']},
-      {nombre:'Bioflux® 2 lúmenes · 4 Fr', ref:'130M40DLEPS', desc:'Doble lumen de menor calibre y longitud.', tags:['2 lúmenes','4 Fr','13 cm']},
+      {nombre:'Bioflux® 3 lúmenes', ref:'200M70TLEPY', desc:'Triple lumen para múltiples terapias simultáneas.', tags:['3 lúmenes','7 Fr','20 cm'], img:'p-cvc-3l.jpg'},
+      {nombre:'Bioflux® 2 lúmenes · 7 Fr', ref:'200M70DLEPY', desc:'Doble lumen de calibre 7 Fr.', tags:['2 lúmenes','7 Fr','20 cm'], img:'p-cvc-2l7.jpg'},
+      {nombre:'Bioflux® 2 lúmenes · 4 Fr', ref:'130M40DLEPS', desc:'Doble lumen de menor calibre y longitud.', tags:['2 lúmenes','4 Fr','13 cm'], img:'p-cvc-2l4.jpg'},
     ],
   },
   {
@@ -35,8 +35,8 @@ const FAMILIES = [
     img:'prod-picc.jpg',
     marcas:[{n:'EB-PICC DUO'}],
     productos:[
-      {nombre:'EB-PICC DUO® 2 Fr', ref:'EB-D2030', desc:'Doble lumen de calibre fino para acceso periférico.', tags:['2 lúmenes','2 Fr','30 cm']},
-      {nombre:'EB-PICC DUO® 5 Fr', ref:'EB-D5060', desc:'Doble lumen de mayor calibre y longitud.', tags:['2 lúmenes','5 Fr','60 cm']},
+      {nombre:'EB-PICC DUO® 2 Fr', ref:'EB-D2030', desc:'Doble lumen de calibre fino para acceso periférico.', tags:['2 lúmenes','2 Fr','30 cm'], img:'p-picc-2030.jpg'},
+      {nombre:'EB-PICC DUO® 5 Fr', ref:'EB-D5060', desc:'Doble lumen de mayor calibre y longitud.', tags:['2 lúmenes','5 Fr','60 cm'], img:'p-picc-5060.jpg'},
     ],
   },
   {
@@ -49,7 +49,7 @@ const FAMILIES = [
     img:'prod-chd.jpg',
     marcas:[{n:'Smart®'}],
     productos:[
-      {nombre:'Smart® Hemodiálisis', ref:'280P145DLAFEP', desc:'Catéter para hemodiálisis temporal o permanente. Silicón suave que aporta flexibilidad y seguridad.', tags:['2 lúmenes','14.5 Fr','28 cm']},
+      {nombre:'Smart® Hemodiálisis', ref:'280P145DLAFEP', desc:'Catéter para hemodiálisis temporal o permanente. Silicón suave que aporta flexibilidad y seguridad.', tags:['2 lúmenes','14.5 Fr','28 cm'], img:'prod-chd.jpg'},
     ],
   },
   {
@@ -61,7 +61,7 @@ const FAMILIES = [
     img:'prod-cdp.jpg',
     marcas:[{n:'Biosil®'}],
     productos:[
-      {nombre:'Biosil® Diálisis peritoneal', ref:'EBC-00257', desc:'Catéter cola de cochino con 2 cojinetes, 57 cm, conector con tapón luer lock curvo.', tags:['Cola de cochino','2 cojinetes','57 cm']},
+      {nombre:'Biosil® Diálisis peritoneal', ref:'EBC-00257', desc:'Catéter cola de cochino con 2 cojinetes, 57 cm, conector con tapón luer lock curvo.', tags:['Cola de cochino','2 cojinetes','57 cm'], img:'prod-cdp.jpg'},
     ],
   },
   {
@@ -74,10 +74,10 @@ const FAMILIES = [
     img:'prod-pvq.jpg',
     marcas:[{n:'Bioaccess®'},{n:'Aguja Huber'}],
     productos:[
-      {nombre:'Bioaccess® 6 Fr', ref:'EB-P5050EP', desc:'Kit completo: catéter de 50 cm, introductor 6 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['6 Fr','Catéter 50 cm','Titanio']},
-      {nombre:'Bioaccess® 7 Fr', ref:'EB-P7050EP', desc:'Kit completo: catéter de 50 cm, introductor 7 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['7 Fr','Catéter 50 cm','Titanio']},
-      {nombre:'Aguja Huber 20 G', ref:'AH902031', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['20 G','31.8 mm','Angulada 90°'], img:'prod-huber.jpg'},
-      {nombre:'Aguja Huber 22 G', ref:'AH902231', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['22 G','31.8 mm','Angulada 90°'], img:'prod-huber.jpg'},
+      {nombre:'Bioaccess® 5 Fr', ref:'EB-P5050EP', desc:'Kit completo: catéter de 50 cm, introductor 6 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['5 Fr','Catéter 50 cm','Titanio'], img:'p-pvq-5.jpg'},
+      {nombre:'Bioaccess® 7 Fr', ref:'EB-P7050EP', desc:'Kit completo: catéter de 50 cm, introductor 7 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['7 Fr','Catéter 50 cm','Titanio'], img:'p-pvq-7.jpg'},
+      {nombre:'Aguja Huber 20 G', ref:'AH902031', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['20 G','31.8 mm','Angulada 90°'], img:'p-huber-20.jpg'},
+      {nombre:'Aguja Huber 22 G', ref:'AH902231', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['22 G','31.8 mm','Angulada 90°'], img:'p-huber-22.jpg'},
     ],
   },
 ];

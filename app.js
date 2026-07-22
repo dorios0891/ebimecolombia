@@ -62,7 +62,7 @@ function viewHome(){
 }
 
 function hero(){
-  return `<section class="hero"><div class="wrap" style="padding:80px 0 92px">
+  return `<section class="hero"><div class="wrap" style="padding-top:80px;padding-bottom:92px">
     <div style="max-width:64ch">
       <div class="eyebrow">Acceso vascular · Colombia</div>
       <h1>Dispositivos que<br>cuidan el acceso.<b>Soporte que cuida al paciente.</b></h1>
@@ -138,7 +138,7 @@ function viewProductos(params){
 
 /* ---------- Detalle de familia ---------- */
 function viewFamiliaDetalle(f){
-  return `<section class="detail-hero"><div class="wrap" style="display:block;padding:44px 0">
+  return `<section class="detail-hero"><div class="wrap" style="display:block;padding-top:44px;padding-bottom:44px">
     <a class="prev" style="cursor:pointer;color:#C9D6F0;font-weight:600;display:inline-block;margin-bottom:16px" href="#/productos">← Todos los productos</a>
     <div class="prod-code" style="color:rgba(255,255,255,.5)">${esc(f.codigo)}</div>
     <h1 style="font-size:clamp(28px,4vw,42px);font-weight:900;margin:4px 0 14px">${esc(f.nombre)}</h1>
@@ -173,7 +173,7 @@ function viewFamiliaDetalle(f){
 /* ---------- Servicios ---------- */
 function viewServicios(){
   return `
-  <section class="hero"><div class="wrap" style="padding:60px 0">
+  <section class="hero"><div class="wrap" style="padding-top:60px;padding-bottom:60px">
     <div class="eyebrow" style="color:var(--cyan);margin-bottom:16px">Servicios</div>
     <h1 style="font-weight:300;font-size:clamp(32px,4.5vw,50px);max-width:22ch;margin-bottom:18px">Un proveedor que se queda al lado de la práctica.</h1>
     <p class="lead" style="max-width:60ch">Acompañamos a las instituciones más allá de la entrega del dispositivo: en la formación de su personal, en la implementación de equipos de acceso vascular y en la medición de resultados.</p>
@@ -199,7 +199,7 @@ function viewServicios(){
 /* ---------- Nosotros ---------- */
 function viewNosotros(){
   return `
-  <section class="hero"><div class="wrap" style="padding:60px 0">
+  <section class="hero"><div class="wrap" style="padding-top:60px;padding-bottom:60px">
     <div class="eyebrow" style="color:var(--cyan);margin-bottom:16px">Nosotros</div>
     <h1 style="font-weight:300;font-size:clamp(32px,4.5vw,50px);max-width:24ch;margin-bottom:18px">Acceso vascular con criterio clínico.</h1>
     <p class="lead" style="max-width:62ch">EBIME Colombia provee dispositivos de acceso vascular a instituciones de salud, con un enfoque que va más allá del suministro: la selección correcta del dispositivo, su inserción segura y su mantenimiento basado en evidencia.</p>
@@ -261,7 +261,7 @@ function viewContacto(){
 }
 
 function notFound(){
-  return `<section class="block"><div class="wrap" style="text-align:center;padding:60px 0">
+  return `<section class="block"><div class="wrap" style="text-align:center;padding-top:60px;padding-bottom:60px">
     <div class="eyebrow" style="color:var(--cyan)">Error 404</div>
     <h1 style="font-size:38px;font-weight:900;color:var(--navy);margin:10px 0">No encontramos esa página</h1>
     <a class="btn btn-cyan" href="#/">Volver al inicio</a>
@@ -314,7 +314,10 @@ function chrome(active,inner){
           <button class="menu-btn" onclick="toggleMenu()" aria-label="Menú">☰</button>
         </div>
       </div>
-      <div class="mobile-menu" id="mmenu">${mlinks}</div>
+      <div class="mobile-menu" id="mmenu">
+        ${mlinks}
+        <a class="btn btn-solid mm-cta" href="#/contacto" onclick="closeMenu()">Contáctanos</a>
+      </div>
     </div>
   </header>
   <main>${inner}</main>

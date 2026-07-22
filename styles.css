@@ -14,10 +14,12 @@
   --radius:22px; --radius-sm:16px; --radius-pill:999px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--font);color:var(--ink);
   -webkit-font-smoothing:antialiased;line-height:1.55;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
   background:
     radial-gradient(1100px 620px at 12% -8%, rgba(22,163,196,.16), transparent 60%),
     radial-gradient(1000px 560px at 92% 4%, rgba(144,45,142,.12), transparent 58%),
@@ -68,7 +70,8 @@ header{position:sticky;top:0;z-index:60}
 .menu-btn{display:none;background:none;border:0;font-size:26px;color:var(--navy);cursor:pointer;line-height:1}
 .mobile-menu{display:none;flex-direction:column;background:var(--glass-bg-strong);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.6)}
 .mobile-menu.open{display:flex}
-.mobile-menu a{padding:15px 24px;border-bottom:1px solid rgba(220,227,237,.6);font-weight:600;cursor:pointer}
+.mobile-menu a{padding:15px 32px;border-bottom:1px solid rgba(220,227,237,.6);font-weight:600;cursor:pointer}
+.mobile-menu .mm-cta{margin:14px 20px 18px;padding:14px 24px;border-bottom:0;text-align:center;color:#fff;border-radius:var(--radius-pill)}
 
 .hero{position:relative;color:#fff;overflow:hidden;background:radial-gradient(700px 380px at 82% 12%, rgba(22,163,196,.5), transparent 62%),radial-gradient(560px 340px at 12% 92%, rgba(144,45,142,.34), transparent 60%),linear-gradient(160deg,#2A50AE,#24459A 46%,#1A346F)}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(1200px 400px at 50% -30%, rgba(255,255,255,.14), transparent 60%);pointer-events:none}
@@ -213,17 +216,78 @@ footer a:hover{color:var(--cyan)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   .np-grid,.contact-grid{grid-template-columns:1fr}
+  section.block{padding:56px 0}
 }
+
+/* ===== TABLET / MÓVIL GRANDE ===== */
 @media(max-width:680px){
-  .nav-links,.nav-actions .btn-ghost{display:none}
+  .nav-links,.nav-actions .btn{display:none}
   .menu-btn{display:block}
   .cards,.prod-grid{grid-template-columns:1fr}
-  .sec-head h2{font-size:27px}
-  .foot-grid{grid-template-columns:1fr}
+  .sec-head h2{font-size:26px}
+  .sec-head p{font-size:15px}
+  .foot-grid{grid-template-columns:1fr 1fr}
   .grid2{grid-template-columns:1fr}
-  .trust{gap:10px}
+  .nav{height:76px}
+  .nav .logo img{height:52px}
+  .hero h1{font-size:clamp(30px,8vw,40px)}
+  .hero p.lead{font-size:17px}
+  .trust{gap:8px;margin-top:32px}
+  .trust div{padding:10px 14px;flex:1;min-width:calc(33% - 8px)}
+  .trust b{font-size:22px}
+  .trust span{font-size:11px}
+  section.block{padding:48px 0}
+  .cta-band{padding:52px 20px}
+  .cta-band h2{font-size:26px}
+  .cta-band p{font-size:16px}
+  .service-row{flex-direction:row;gap:16px;padding:20px}
+  .service-ico{width:48px;height:48px;border-radius:14px}
+  .service-ico svg{width:24px;height:24px}
+  .stat{padding:20px 12px}
+  .stat b{font-size:34px}
+  .detail-hero h1{font-size:clamp(26px,7vw,36px)}
 }
-@media(max-width:600px){.prod-grid{grid-template-columns:1fr}.nav .logo img{height:46px}.nav{height:74px}}
+
+/* ===== MÓVIL ===== */
+@media(max-width:560px){
+  .wrap{padding:0 22px}
+  .prod-grid,.cards{grid-template-columns:1fr;gap:16px}
+  .nav .logo img{height:46px}
+  .nav{height:72px}
+  .foot-grid{grid-template-columns:1fr;gap:26px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:12px}
+  .hero{padding-bottom:8px}
+  .hero-cta{gap:10px}
+  .hero-cta .btn{flex:1;min-width:calc(50% - 5px)}
+  .btn-lg{padding:14px 22px;font-size:15px}
+  .sec-head h2{font-size:24px}
+  .card-body,.prod-top{padding:20px}
+  .prod-img{height:180px}
+  .pillar{padding:22px}
+  .service-row h3{font-size:17px}
+  .foot-bottom{flex-direction:column;gap:8px}
+  .toast{bottom:16px;font-size:14px;padding:13px 20px;width:calc(100% - 32px);text-align:center}
+}
+
+/* ===== MÓVIL ESTRECHO ===== */
+@media(max-width:380px){
+  .hero h1{font-size:28px}
+  .trust div{min-width:calc(50% - 4px)}
+  .hero-cta .btn{min-width:100%}
+  .sec-head h2{font-size:22px}
+}
+
+/* En móvil, reducir la intensidad del blur mejora el rendimiento (GPU) */
+@media(max-width:680px) and (hover:none){
+  .card,.prod-card,.pillar,.stat,.service-row,.np,.aside-card,.header-inner,.mobile-menu{
+    backdrop-filter:blur(14px) saturate(150%);
+    -webkit-backdrop-filter:blur(14px) saturate(150%);
+  }
+  /* el fondo fijo causa parpadeos/lag al hacer scroll en iOS: lo soltamos */
+  body{background-attachment:scroll}
+  /* desactivar el hover-lift en pantallas táctiles (no aplica y puede trabar) */
+  .card:hover,.prod-card:hover{transform:none}
+}
 
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   .card,.prod-card,.pillar,.stat,.service-row,.np,.aside-card,.chip,.btn-ghost,.header-inner,.mobile-menu,.toast,.glass,.empty,.faq details{background:rgba(255,255,255,.95)!important}
