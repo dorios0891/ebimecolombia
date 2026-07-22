@@ -17,12 +17,12 @@ const FAMILIES = [
     accent:'#16A3C4',
     resumen:'Ideal para terapia intensiva, suministro de medicamentos y nutrición parenteral, fabricado de poliuretano radiopaco termosensible.',
     material:'Poliuretano radiopaco termosensible',
-    img:'prod-cvc.jpg',
+    img:'prod-cvc.jpg', ficha:'fichas/ft-cvc.pdf',
     marcas:[{n:'Bioflux®'}],
     productos:[
-      {nombre:'Bioflux® 3 lúmenes', ref:'200M70TLEPY', desc:'Triple lumen para múltiples terapias simultáneas.', tags:['3 lúmenes','7 Fr','20 cm'], img:'p-cvc-3l.jpg'},
-      {nombre:'Bioflux® 2 lúmenes · 7 Fr', ref:'200M70DLEPY', desc:'Doble lumen de calibre 7 Fr.', tags:['2 lúmenes','7 Fr','20 cm'], img:'p-cvc-2l7.jpg'},
-      {nombre:'Bioflux® 2 lúmenes · 4 Fr', ref:'130M40DLEPS', desc:'Doble lumen de menor calibre y longitud.', tags:['2 lúmenes','4 Fr','13 cm'], img:'p-cvc-2l4.jpg'},
+      {nombre:'Bioflux® 3 lúmenes', ref:'200M70TLEPY', desc:'Triple lumen para múltiples terapias simultáneas.', tags:['3 lúmenes','7 Fr','20 cm'], img:'p-cvc-3l.jpg', folleto:'folletos/fol-cvc-3l.pdf'},
+      {nombre:'Bioflux® 2 lúmenes · 7 Fr', ref:'200M70DLEPY', desc:'Doble lumen de calibre 7 Fr.', tags:['2 lúmenes','7 Fr','20 cm'], img:'p-cvc-2l7.jpg', folleto:'folletos/fol-cvc-2l7.pdf'},
+      {nombre:'Bioflux® 2 lúmenes · 4 Fr', ref:'130M40DLEPS', desc:'Doble lumen de menor calibre y longitud.', tags:['2 lúmenes','4 Fr','13 cm'], img:'p-cvc-2l4.jpg', folleto:'folletos/fol-cvc-2l4.pdf'},
     ],
   },
   {
@@ -32,10 +32,10 @@ const FAMILIES = [
     accent:'#902D8E',
     resumen:'Ideal para terapia intensiva, suministro de medicamentos y nutrición parenteral, fabricado de poliuretano radiopaco.',
     material:'Poliuretano radiopaco',
-    img:'prod-picc.jpg',
+    img:'prod-picc.jpg', ficha:'fichas/ft-picc.pdf',
     marcas:[{n:'EB-PICC DUO'}],
     productos:[
-      {nombre:'EB-PICC DUO® 2 Fr', ref:'EB-D2030', desc:'Doble lumen de calibre fino para acceso periférico.', tags:['2 lúmenes','2 Fr','30 cm'], img:'p-picc-2030.jpg'},
+      {nombre:'EB-PICC DUO® 2 Fr', ref:'EB-D2030', desc:'Doble lumen de calibre fino para acceso periférico.', tags:['2 lúmenes','2 Fr','30 cm'], img:'p-picc-2030.jpg', folleto:'folletos/fol-picc-2030.pdf'},
       {nombre:'EB-PICC DUO® 5 Fr', ref:'EB-D5060', desc:'Doble lumen de mayor calibre y longitud.', tags:['2 lúmenes','5 Fr','60 cm'], img:'p-picc-5060.jpg'},
     ],
   },
@@ -46,10 +46,10 @@ const FAMILIES = [
     accent:'#54B24C',
     resumen:'Temporal o permanente. Fabricado en silicón suave, permite flexibilidad para obtener mayor seguridad.',
     material:'Silicón suave',
-    img:'prod-chd.jpg',
+    img:'prod-chd.jpg', ficha:'fichas/ft-chd.pdf',
     marcas:[{n:'Smart®'}],
     productos:[
-      {nombre:'Smart® Hemodiálisis', ref:'280P145DLAFEP', desc:'Catéter para hemodiálisis temporal o permanente. Silicón suave que aporta flexibilidad y seguridad.', tags:['2 lúmenes','14.5 Fr','28 cm'], img:'prod-chd.jpg'},
+      {nombre:'Smart® Hemodiálisis', ref:'280P145DLAFEP', desc:'Catéter para hemodiálisis temporal o permanente. Silicón suave que aporta flexibilidad y seguridad.', tags:['2 lúmenes','14.5 Fr','28 cm'], img:'prod-chd.jpg', folleto:'folletos/fol-chd.pdf'},
     ],
   },
   {
@@ -61,7 +61,8 @@ const FAMILIES = [
     img:'prod-cdp.jpg',
     marcas:[{n:'Biosil®'}],
     productos:[
-      {nombre:'Biosil® Diálisis peritoneal', ref:'EBC-00257', desc:'Catéter cola de cochino con 2 cojinetes, 57 cm, conector con tapón luer lock curvo.', tags:['Cola de cochino','2 cojinetes','57 cm'], img:'prod-cdp.jpg'},
+      {nombre:'Biosil® Diálisis peritoneal', ref:'EBC-00257', desc:'Catéter cola de cochino con 2 cojinetes, 57 cm, conector con tapón luer lock curvo.', tags:['Cola de cochino','2 cojinetes','57 cm'], img:'prod-cdp.jpg', folleto:'folletos/fol-cdp.pdf'},
+      {nombre:'Biosil® Tenckhoff pediátrico', ref:'EB-00237 (7032)', desc:'Para diálisis peritoneal crónica. De instalación subcutánea, blando, de silicón con dos cojinetes de poliéster o dacrón, con conector, tapón y seguro, con banda radiopaca. Estéril y desechable.', tags:['Tenckhoff','Pediátrico','2 cojinetes','Radiopaco'], img:'prod-cdp.jpg', folleto:'folletos/fol-cdp-tenck.pdf'},
     ],
   },
   {
@@ -71,13 +72,13 @@ const FAMILIES = [
     accent:'#902D8E',
     resumen:'Para la aplicación de quimioterapia en pacientes oncológicos.',
     material:'Contenedor de titanio con membrana de silicón',
-    img:'prod-pvq.jpg',
+    img:'prod-pvq.jpg', ficha:'fichas/ft-pvq.pdf',
     marcas:[{n:'Bioaccess®'},{n:'Aguja Huber'}],
     productos:[
-      {nombre:'Bioaccess® 5 Fr', ref:'EB-P5050EP', desc:'Kit completo: catéter de 50 cm, introductor 6 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['5 Fr','Catéter 50 cm','Titanio'], img:'p-pvq-5.jpg'},
-      {nombre:'Bioaccess® 7 Fr', ref:'EB-P7050EP', desc:'Kit completo: catéter de 50 cm, introductor 7 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['7 Fr','Catéter 50 cm','Titanio'], img:'p-pvq-7.jpg'},
-      {nombre:'Aguja Huber 20 G', ref:'AH902031', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['20 G','31.8 mm','Angulada 90°'], img:'p-huber-20.jpg'},
-      {nombre:'Aguja Huber 22 G', ref:'AH902231', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['22 G','31.8 mm','Angulada 90°'], img:'p-huber-22.jpg'},
+      {nombre:'Bioaccess® 5 Fr', ref:'EB-P5050EP', desc:'Kit completo: catéter de 50 cm, introductor 6 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['5 Fr','Catéter 50 cm','Titanio'], img:'p-pvq-5.jpg', folleto:'folletos/fol-pvq-5.pdf'},
+      {nombre:'Bioaccess® 7 Fr', ref:'EB-P7050EP', desc:'Kit completo: catéter de 50 cm, introductor 7 Fr, contenedor de titanio, dos agujas Huber 22 G y tunelizador.', tags:['7 Fr','Catéter 50 cm','Titanio'], img:'p-pvq-7.jpg', folleto:'folletos/fol-pvq-7.pdf'},
+      {nombre:'Aguja Huber 20 G', ref:'AH902031', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['20 G','31.8 mm','Angulada 90°'], img:'p-huber-20.jpg', ficha:'fichas/ft-huber.pdf', folleto:'folletos/fol-huber.pdf'},
+      {nombre:'Aguja Huber 22 G', ref:'AH902231', desc:'Aguja tipo Huber, angulada a 90°, de acero inoxidable.', tags:['22 G','31.8 mm','Angulada 90°'], img:'p-huber-22.jpg', ficha:'fichas/ft-huber.pdf'},
     ],
   },
 ];

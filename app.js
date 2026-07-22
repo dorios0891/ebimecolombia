@@ -152,19 +152,30 @@ function viewFamiliaDetalle(f){
       <div style="display:flex;gap:6px">${f.marcas.map(m=>`<span class="brand-pill" style="color:${f.accent};border-color:${f.accent}">${esc(m.n)}</span>`).join('')}</div>
     </div>
     <div class="cards">
-      ${f.productos.map(p=>`<div class="card" style="cursor:default"><div class="spine" style="background:${f.accent}"></div>
-        ${p.img?`<div class="prod-img" style="height:160px;background-image:url('${window.__IMG__?.[p.img]||p.img}')"></div>`:''}
+      ${f.productos.map(p=>{
+        const src = p.img ? (window.__IMG__?.[p.img]||p.img) : '';
+        const ficha = p.ficha || f.ficha;
+        return `<div class="card" style="cursor:default"><div class="spine" style="background:${f.accent}"></div>
+        ${p.img?`<div class="prod-img prod-img-click" style="height:180px;background-image:url('${src}')" onclick="openLightbox('${src}','${esc(p.nombre)}')" title="Ampliar imagen">
+          <span class="zoom-badge">⤢</span>
+        </div>`:''}
         <div class="card-body">
           <h3 style="margin-bottom:6px">${esc(p.nombre)}</h3>
           <div class="ref">Ref. ${esc(p.ref)}</div>
           <p>${esc(p.desc)}</p>
-          <div class="meta" style="border:0;padding-top:0;flex-wrap:wrap;gap:6px">
+          <div class="meta" style="border:0;padding-top:0;flex-wrap:wrap;gap:6px;margin-bottom:16px">
             ${(p.tags||[]).map(t=>`<span class="ptag" style="border-color:${f.accent};color:${f.accent}">${esc(t)}</span>`).join('')}
           </div>
-        </div></div>`).join('')}
+          <div class="prod-actions">
+            ${p.img?`<button class="btn btn-ghost btn-sm" onclick="openLightbox('${src}','${esc(p.nombre)}')">Ver imagen</button>`:''}
+            ${ficha?`<a class="btn btn-ghost btn-sm" href="${ficha}" target="_blank" rel="noopener">Ficha técnica</a>`:''}
+            ${p.folleto?`<a class="btn btn-cyan btn-sm" href="${p.folleto}" target="_blank" rel="noopener">Folleto</a>`:''}
+          </div>
+        </div></div>`;
+      }).join('')}
     </div>
-    <div style="background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px;margin-top:24px">
-      <p style="color:var(--gray);font-size:14px">Las fichas técnicas completas, presentaciones y registro sanitario se entregan a solicitud de nuestro equipo comercial.</p>
+    <div style="margin-top:24px" class="glass" >
+      <div style="padding:20px 24px"><p style="color:var(--gray);font-size:14px">Cada referencia tiene su <b>Ficha técnica</b> y su <b>Folleto</b> descargables, y su imagen ampliable. Para presentaciones, registro sanitario y cotización, escríbenos.</p></div>
     </div>
   </div></section>
   <div style="text-align:center;padding-bottom:60px"><a class="btn btn-solid" href="#/contacto">Solicitar información</a></div>`;
@@ -270,6 +281,29 @@ function notFound(){
 
 /* ---------- Acciones ---------- */
 function doContact(e){ e.preventDefault(); toast('Mensaje enviado (demostración)'); e.target.reset(); return false; }
+
+/* ---------- Lightbox de imagen ---------- */
+function openLightbox(src, titulo){
+  let lb = document.getElementById('lightbox');
+  if(!lb){
+    lb = document.createElement('div');
+    lb.id = 'lightbox';
+    lb.className = 'lightbox';
+    lb.innerHTML = `<button class="lb-close" aria-label="Cerrar">✕</button>
+      <figure class="lb-fig"><img class="lb-img" alt=""><figcaption class="lb-cap"></figcaption></figure>`;
+    document.body.appendChild(lb);
+    lb.addEventListener('click', e => { if(e.target === lb || e.target.classList.contains('lb-close')) closeLightbox(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+  }
+  lb.querySelector('.lb-img').src = src;
+  lb.querySelector('.lb-cap').textContent = titulo || '';
+  requestAnimationFrame(()=> lb.classList.add('show'));
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  const lb = document.getElementById('lightbox');
+  if(lb){ lb.classList.remove('show'); document.body.style.overflow=''; }
+}
 
 /* ==========================================================================
    ROUTER
