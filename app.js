@@ -305,15 +305,17 @@ function chrome(active,inner){
   return `
   <div class="rule"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
   <header>
-    <div class="wrap nav">
-      <a class="logo" href="#/"><img src="${LOGO_COLOR}" alt="EBIME Colombia"></a>
-      <ul class="nav-links">${navlinks}</ul>
-      <div class="nav-actions">
-        <a class="btn btn-solid" href="#/contacto">Contáctanos</a>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Menú">☰</button>
+    <div class="header-inner">
+      <div class="wrap nav">
+        <a class="logo" href="#/"><img src="${LOGO_COLOR}" alt="EBIME Colombia"></a>
+        <ul class="nav-links">${navlinks}</ul>
+        <div class="nav-actions">
+          <a class="btn btn-solid" href="#/contacto">Contáctanos</a>
+          <button class="menu-btn" onclick="toggleMenu()" aria-label="Menú">☰</button>
+        </div>
       </div>
+      <div class="mobile-menu" id="mmenu">${mlinks}</div>
     </div>
-    <div class="mobile-menu" id="mmenu">${mlinks}</div>
   </header>
   <main>${inner}</main>
   <footer><div class="wrap">
