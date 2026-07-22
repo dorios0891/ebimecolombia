@@ -154,12 +154,12 @@ function viewFamiliaDetalle(f){
     <div class="cards">
       ${f.productos.map(p=>{
         const src = p.img ? (window.__IMG__?.[p.img]||p.img) : '';
-        // Imagen mejorada para el lightbox: 'lb-<img>' si existe, si no la misma
-        const lbKey = p.img ? ('lb-'+p.img) : '';
-        const lbSrc = (window.__IMG__?.[lbKey]) || src;
+        // Clave de la imagen mejorada para el lightbox (se resuelve dentro de openLightbox)
+        const lbKey = p.img ? (window.__IMG__?.['lb-'+p.img] ? 'lb-'+p.img : p.img) : '';
         const ficha = p.ficha || f.ficha;
+        const nombreJs = esc(p.nombre).replace(/'/g,"\\'");
         return `<div class="card" style="cursor:default"><div class="spine" style="background:${f.accent}"></div>
-        ${p.img?`<div class="prod-img prod-img-click" style="height:180px;background-image:url('${src}')" onclick="openLightbox('${lbSrc}','${esc(p.nombre)}')" title="Ampliar imagen">
+        ${p.img?`<div class="prod-img prod-img-click" style="height:180px;background-image:url('${src}')" onclick="openLightbox('${lbKey}','${nombreJs}')" title="Ampliar imagen">
           <span class="zoom-badge">⤢</span>
         </div>`:''}
         <div class="card-body">
@@ -170,7 +170,7 @@ function viewFamiliaDetalle(f){
             ${(p.tags||[]).map(t=>`<span class="ptag" style="border-color:${f.accent};color:${f.accent}">${esc(t)}</span>`).join('')}
           </div>
           <div class="prod-actions">
-            ${p.img?`<button class="btn btn-ghost btn-sm" onclick="openLightbox('${lbSrc}','${esc(p.nombre)}')">Ver imagen</button>`:''}
+            ${p.img?`<button class="btn btn-ghost btn-sm" onclick="openLightbox('${lbKey}','${nombreJs}')">Ver imagen</button>`:''}
             ${ficha?`<a class="btn btn-ghost btn-sm" href="${ficha}" target="_blank" rel="noopener">Ficha técnica</a>`:''}
             ${p.folleto?`<a class="btn btn-cyan btn-sm" href="${p.folleto}" target="_blank" rel="noopener">Folleto</a>`:''}
           </div>
@@ -286,7 +286,10 @@ function notFound(){
 function doContact(e){ e.preventDefault(); toast('Mensaje enviado (demostración)'); e.target.reset(); return false; }
 
 /* ---------- Lightbox de imagen ---------- */
-function openLightbox(src, titulo){
+function openLightbox(key, titulo){
+  // key puede ser una clave de __IMG__ (ej. 'lb-prod-chd.jpg') o una URL directa
+  const src = (window.__IMG__ && window.__IMG__[key]) ? window.__IMG__[key] : key;
+
   let lb = document.getElementById('lightbox');
   if(!lb){
     lb = document.createElement('div');
