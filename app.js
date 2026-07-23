@@ -209,6 +209,7 @@ function viewServicios(){
   </div></section>${ctaBand()}`;
 }
 
+
 /* ---------- Nosotros ---------- */
 function viewNosotros(){
   return `
@@ -266,7 +267,6 @@ function viewContacto(){
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.4 15.4 4 13.7 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8z"/></svg>
             Escríbenos por WhatsApp
           </a>
-          <div class="social" style="margin-top:16px">${socialLinks()}</div>
         </div>
         <div class="aside-card" style="background:var(--navy);color:#fff;border:0">
           <h3 style="color:#fff">Formación clínica</h3>
@@ -343,8 +343,10 @@ function render(){
 
 function chrome(active,inner){
   const links=[['','Inicio'],['productos','Productos'],['servicios','Servicios'],['nosotros','Nosotros'],['contacto','Contacto']];
-  const navlinks=links.map(([h,t])=>`<a class="${active===h?'active':''}" href="#/${h}">${t}</a>`).join('');
-  const mlinks=links.map(([h,t])=>`<a onclick="closeMenu()" href="#/${h}">${t}</a>`).join('');
+  const navlinks=links.map(([h,t])=>`<a class="${active===h?'active':''}" href="#/${h}">${t}</a>`).join('')
+    + `<a class="nav-ebapp" href="https://eblab.ebime.com.mx/" target="_blank" rel="noopener">EB-APP</a>`;
+  const mlinks=links.map(([h,t])=>`<a onclick="closeMenu()" href="#/${h}">${t}</a>`).join('')
+    + `<a class="nav-ebapp-m" href="https://eblab.ebime.com.mx/" target="_blank" rel="noopener" onclick="closeMenu()">EB-APP</a>`;
 
   return `
   <div class="rule"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
@@ -384,11 +386,9 @@ function chrome(active,inner){
 
 /* Íconos de redes sociales — WhatsApp, Instagram, TikTok */
 function socialLinks(){
-  const wa = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>`;
   const ig = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.3-8.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>`;
   const tt = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8c-.9-1-1.4-2.3-1.4-3.8h-3.1v12.4c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1 0-5.4c.3 0 .6 0 .8.1V8.6c-.3 0-.5-.1-.8-.1a5.8 5.8 0 1 0 5.8 5.8V8.2c1.2.9 2.6 1.4 4.2 1.4V6.5c-1 0-2-.3-2.8-.7z"/></svg>`;
   return `
-    <a href="${CONTACT.whatsapp}" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-ico">${wa}</a>
     <a href="${CONTACT.instagram}" target="_blank" rel="noopener" aria-label="Instagram" class="social-ico">${ig}</a>
     <a href="${CONTACT.tiktok}" target="_blank" rel="noopener" aria-label="TikTok" class="social-ico">${tt}</a>`;
 }

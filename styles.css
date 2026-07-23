@@ -62,7 +62,7 @@ header{position:sticky;top:0;z-index:60}
 .header-inner{background:var(--glass-bg-strong);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 6px 24px rgba(20,42,94,.07)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:104px;gap:24px}
 .nav .logo img{height:80px;filter:drop-shadow(0 2px 6px rgba(20,42,94,.12))}
-.nav-links{display:flex;gap:6px;list-style:none}
+.nav-links{display:flex;gap:6px;list-style:none;align-items:center}
 .nav-links a{font-weight:600;font-size:15px;padding:9px 16px;border-radius:var(--radius-pill);transition:background .18s,color .18s;color:var(--ink)}
 .nav-links a:hover{color:var(--navy);background:rgba(36,69,154,.08)}
 .nav-links a.active{color:var(--navy);background:rgba(22,163,196,.14)}
@@ -344,3 +344,43 @@ footer .social-ico:hover{background:var(--cyan);transform:translateY(-2px)}
 .aside-card .social-ico{background:rgba(36,69,154,.08);color:var(--navy);border:1px solid var(--glass-brd)}
 .aside-card .social-ico:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
 .foot-brand .social{margin-top:16px}
+
+/* ===== Pestaña EB-APP en el menú ===== */
+.nav-ebapp{display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-weight:800;font-size:13px !important;letter-spacing:.02em;color:#fff !important;
+  background:linear-gradient(180deg,#1CB6DA,#16A3C4);
+  padding:8px 14px !important;border-radius:var(--radius-pill);margin-left:8px;
+  box-shadow:0 3px 10px rgba(22,163,196,.3),inset 0 1px 0 rgba(255,255,255,.3);transition:filter .18s,transform .18s}
+.nav-ebapp:hover{filter:brightness(1.08);transform:translateY(-1px);background:linear-gradient(180deg,#1CB6DA,#16A3C4) !important}
+.nav-ebapp-m{color:var(--cyan) !important;font-weight:800 !important}
+
+/* ===== Pop-up EB-APP ===== */
+.ebapp-popup{position:fixed;inset:0;z-index:210;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:rgba(14,26,51,.6);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);
+  opacity:0;pointer-events:none;transition:opacity .3s cubic-bezier(.4,0,.2,1)}
+.ebapp-popup.show{opacity:1;pointer-events:auto}
+.ebapp-modal{position:relative;max-width:460px;width:100%;border-radius:var(--radius);overflow:hidden;
+  background:radial-gradient(500px 260px at 90% 8%, rgba(22,163,196,.5), transparent 60%),
+    radial-gradient(360px 220px at 6% 100%, rgba(144,45,142,.34), transparent 60%),
+    linear-gradient(155deg,#2A50AE,#24459A 55%,#1A346F);
+  color:#fff;padding:38px 32px 32px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.14);
+  transform:scale(.92) translateY(10px);transition:transform .35s cubic-bezier(.34,1.4,.64,1)}
+.ebapp-popup.show .ebapp-modal{transform:scale(1) translateY(0)}
+.ebapp-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .18s}
+.ebapp-close:hover{background:rgba(255,255,255,.28)}
+.ebapp-modal-badge{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:5px 14px;border-radius:var(--radius-pill);
+  margin-bottom:16px;color:#8FE3F5}
+.ebapp-modal h3{font-size:25px;font-weight:900;line-height:1.15;margin-bottom:12px;letter-spacing:-.02em}
+.ebapp-modal p{font-size:16px;font-weight:300;color:#D3E0F6;margin-bottom:24px;line-height:1.6}
+.ebapp-modal-actions{display:flex;gap:10px;flex-wrap:wrap}
+.ebapp-modal-actions .btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.ebapp-modal-actions .btn-ghost:hover{background:rgba(255,255,255,.2)}
+@media(max-width:480px){
+  .ebapp-modal{padding:32px 22px 26px}
+  .ebapp-modal h3{font-size:22px}
+  .ebapp-modal-actions .btn{flex:1;text-align:center;justify-content:center}
+}
