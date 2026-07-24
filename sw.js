@@ -1,6 +1,6 @@
-// EBIME service worker · v9.0
-const VERSION = '9.5';
-const CACHE = 'ebime-v9.5';
+// EBIME service worker
+const VERSION = '9.7';
+const CACHE = 'ebime-v9.7';
 // Precache COMPLETO -> funcionamiento offline total una vez instalada.
 // Las fuentes van incrustadas (base64) dentro de index.html, así que se cachean con él.
 const SHELL = [
@@ -46,7 +46,7 @@ function cacheFirst(req) {
     const copy = res.clone();
     caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
     return res;
-  }).catch(() => caches.match('./index.html')));
+  }).catch(() => undefined));
 }
 
 self.addEventListener('fetch', e => {

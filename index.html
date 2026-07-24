@@ -907,7 +907,7 @@ html[data-theme=dark] .ctab .grow{background:var(--surface-2)}
   </div>
   </div>
   <div class="appfoot" data-i18n="home_foot">© 2026 Diego Orlando Ríos Guarín · Uso educativo y clínico-operativo. Escalas reconocidas a sus autores. Contacto: dorios0891@gmail.com</div>
-  <div class="appver">EBIME LAB · v9.5 · 20 jul 2026</div>
+  <div class="appver">EBIME LAB · v9.7 · 20 jul 2026</div>
 </div>
 
 <!-- CALC -->
@@ -1217,7 +1217,7 @@ html[data-theme=dark] .ctab .grow{background:var(--surface-2)}
     <div class="ios-h">Idioma</div>
     <div class="ios-group" id="langList"></div>
   </div>
-  <div style="font-family:var(--mono);font-size:10px;color:var(--txt-faint);text-align:center;padding:16px 0 2px;letter-spacing:.5px">EBIME LAB · v9.5 · 20 jul 2026</div>
+  <div style="font-family:var(--mono);font-size:10px;color:var(--txt-faint);text-align:center;padding:16px 0 2px;letter-spacing:.5px">EBIME LAB · v9.7 · 20 jul 2026</div>
 </div>
 <div class="dlg-scrim" id="disclaimer">
   <div class="dlg-card" role="dialog" aria-modal="true">
@@ -2144,7 +2144,22 @@ function setTheme(v){THEME=v;applyTheme();}
 applyLang();applyTheme();
 
 /* service worker */
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+if('serviceWorker' in navigator){
+  var _swHadCtrl=!!navigator.serviceWorker.controller, _swReloading=false;
+  navigator.serviceWorker.addEventListener('controllerchange',function(){
+    if(!_swHadCtrl||_swReloading)return;   /* 1.ª instalacion: no recargar */
+    _swReloading=true;location.reload();   /* version nueva -> refresca la vista */
+  });
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(reg){
+      try{reg.update();}catch(e){}
+      setInterval(function(){try{reg.update();}catch(e){}},30*60*1000);
+      document.addEventListener('visibilitychange',function(){
+        if(document.visibilityState==='visible'){try{reg.update();}catch(e){}}
+      });
+    }).catch(function(){});
+  });
+}
 </script>
 
 <div class="dlg-scrim hidden" id="iosInstall">
