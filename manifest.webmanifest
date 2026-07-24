@@ -1,0 +1,97 @@
+{
+  "name": "EBIME · Plataforma Clínica de Acceso Vascular",
+  "short_name": "EBIME",
+  "description": "Calculadoras de acceso vascular, motor farmacológico y catálogo de dispositivos EBIME.",
+  "start_url": ".",
+  "id": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "es",
+  "background_color": "#0b1120",
+  "theme_color": "#24459a",
+  "categories": [
+    "medical",
+    "health",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/01.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Inicio · plataforma clínica"
+    },
+    {
+      "src": "screenshots/02.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Calculadoras clínicas"
+    },
+    {
+      "src": "screenshots/03.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Calculadora ratio catéter/vena"
+    },
+    {
+      "src": "screenshots/04.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Resultado de cálculo"
+    },
+    {
+      "src": "screenshots/05.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Motor farmacológico"
+    },
+    {
+      "src": "screenshots/06.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Catálogo de dispositivos"
+    },
+    {
+      "src": "screenshots/07.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Catálogo · línea PICC"
+    },
+    {
+      "src": "screenshots/08.jpeg",
+      "sizes": "720x1544",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Aviso de uso"
+    }
+  ],
+  "version": "9.5"
+}
